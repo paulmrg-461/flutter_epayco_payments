@@ -2,11 +2,11 @@ import 'dart:convert';
 
 import 'package:flutter_epayco_payments/domain/entities/entities.dart';
 
-String psePaymentRequestToJson(PsePaymentRequest data) =>
+String cashPaymentRequestToJson(CashPaymentRequest data) =>
     json.encode(data.toJson());
 
-class PsePaymentRequest {
-  PsePaymentRequest({
+class CashPaymentRequest {
+  CashPaymentRequest({
     required this.userEntity,
     this.invoice,
     this.description,
@@ -34,7 +34,7 @@ class PsePaymentRequest {
   final String? urlConfirmation;
   final String? methodConfirmation;
 
-  PsePaymentRequest copyWith({
+  CashPaymentRequest copyWith({
     UserEntity? userEntity,
     String? invoice,
     String? description,
@@ -48,7 +48,7 @@ class PsePaymentRequest {
     String? urlConfirmation,
     String? methodConfirmation,
   }) =>
-      PsePaymentRequest(
+      CashPaymentRequest(
         userEntity: userEntity ?? this.userEntity,
         invoice: invoice ?? this.invoice,
         description: description ?? this.description,
