@@ -1,7 +1,7 @@
 name: flutter_epayco_payments
-description: A new Flutter package project.
+description: Flutter ePayco payments with ePayco Python Flask REST API
 version: 0.0.1
-homepage: null
+homepage: https://devpaul.co
 
 environment:
   sdk: '>=3.1.0-163.1.beta <4.0.0'
