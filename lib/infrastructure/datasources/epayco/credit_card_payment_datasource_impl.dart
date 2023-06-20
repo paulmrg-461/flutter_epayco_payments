@@ -6,15 +6,15 @@ import 'package:flutter_epayco_payments/domain/datasources/epayco/credit_card_pa
 import 'package:flutter_epayco_payments/domain/entities/entities.dart';
 
 class CreditCardPaymentDatasourceImpl implements CreditCardPaymentDatasource {
-  final HttpAdapter epaycoHttpRequest =
-      HttpAdapter(baseUrl: EpaycoConstants.baseUrl);
+  final HttpAdapter httpAdapter;
+  CreditCardPaymentDatasourceImpl(this.httpAdapter);
   @override
   Future<CreditCardPaymentResponse> creditCardPayment(
       CreditCardPaymentRequest creditCardPaymentRequest) async {
-    final ipAddressResp = await epaycoHttpRequest.httpGetResponse(
+    final ipAddressResp = await httpAdapter.httpGetResponse(
         uri: EpaycoConstants.getIpAddressUrl, headers: EpaycoConstants.headers);
 
-    final response = await epaycoHttpRequest.httpPostResponse(
+    final response = await httpAdapter.httpPostResponse(
         uri: 'credit-card-payment',
         body: creditCardPaymentRequestToJson(
             creditCardPaymentRequest.copyWith(ip: ipAddressResp['ip'])),

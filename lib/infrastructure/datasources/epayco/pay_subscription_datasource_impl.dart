@@ -6,15 +6,15 @@ import 'package:flutter_epayco_payments/domain/datasources/epayco/pay_subscripti
 import 'package:flutter_epayco_payments/domain/entities/entities.dart';
 
 class PaySubscriptionDatasourceImpl implements PaySubscriptionDatasource {
-  final HttpAdapter epaycoHttpRequest =
-      HttpAdapter(baseUrl: EpaycoConstants.baseUrl);
+  final HttpAdapter httpAdapter;
+  PaySubscriptionDatasourceImpl(this.httpAdapter);
   @override
   Future<PaySubscriptionResponse> paySubscription(
       SubscriptionRequest subscriptionRequest) async {
-    final ipAddressResp = await epaycoHttpRequest.httpGetResponse(
+    final ipAddressResp = await httpAdapter.httpGetResponse(
         uri: EpaycoConstants.getIpAddressUrl, headers: EpaycoConstants.headers);
 
-    final response = await epaycoHttpRequest.httpPostResponse(
+    final response = await httpAdapter.httpPostResponse(
         uri: 'pay-subscription',
         body: subscriptionRequestToJson(
             subscriptionRequest.copyWith(ip: ipAddressResp['ip'])),

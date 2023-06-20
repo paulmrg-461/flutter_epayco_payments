@@ -6,15 +6,16 @@ import 'package:flutter_epayco_payments/domain/datasources/datasources.dart';
 import 'package:flutter_epayco_payments/domain/entities/entities.dart';
 
 class CashPaymentDatasourceImpl implements CashPaymentDatasource {
-  final HttpAdapter epaycoHttpRequest =
-      HttpAdapter(baseUrl: EpaycoConstants.baseUrl);
+  final HttpAdapter httpAdapter;
+  CashPaymentDatasourceImpl(this.httpAdapter);
+
   @override
   Future<CashPaymentResponse> cashPayment(
       CashPaymentRequest cashPaymentRequest) async {
-    final ipAddressResp = await epaycoHttpRequest.httpGetResponse(
+    final ipAddressResp = await httpAdapter.httpGetResponse(
         uri: EpaycoConstants.getIpAddressUrl, withBaseUrl: false);
 
-    final response = await epaycoHttpRequest.httpPostResponse(
+    final response = await httpAdapter.httpPostResponse(
         uri: 'cash-payment',
         body: cashPaymentRequestToJson(
             cashPaymentRequest.copyWith(ip: ipAddressResp['ip'])),
@@ -25,6 +26,6 @@ class CashPaymentDatasourceImpl implements CashPaymentDatasource {
 
   @override
   Future<CashMethodsResponse> getCashMethods() async =>
-      CashMethodsResponse.fromJson(await epaycoHttpRequest.httpGetResponse(
+      CashMethodsResponse.fromJson(await httpAdapter.httpGetResponse(
           uri: 'list-of-cash-methods', headers: EpaycoConstants.headers));
 }

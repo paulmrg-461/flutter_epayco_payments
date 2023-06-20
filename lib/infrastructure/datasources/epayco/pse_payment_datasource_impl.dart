@@ -6,15 +6,15 @@ import 'package:flutter_epayco_payments/domain/datasources/epayco/pse_payment_da
 import 'package:flutter_epayco_payments/domain/entities/entities.dart';
 
 class PsePaymentDatasourceImpl implements PsePaymentDatasource {
-  final HttpAdapter epaycoHttpRequest =
-      HttpAdapter(baseUrl: EpaycoConstants.baseUrl);
+  final HttpAdapter httpAdapter;
+  PsePaymentDatasourceImpl(this.httpAdapter);
   @override
   Future<PsePaymentResponse> psePayment(
       PsePaymentRequest psePaymentRequest) async {
-    final ipAddressResp = await epaycoHttpRequest.httpGetResponse(
+    final ipAddressResp = await httpAdapter.httpGetResponse(
         uri: EpaycoConstants.getIpAddressUrl, withBaseUrl: false);
 
-    final response = await epaycoHttpRequest.httpPostResponse(
+    final response = await httpAdapter.httpPostResponse(
         uri: 'pse-payment',
         body: psePaymentRequestToJson(
             psePaymentRequest.copyWith(ip: ipAddressResp['ip'])),
@@ -25,6 +25,6 @@ class PsePaymentDatasourceImpl implements PsePaymentDatasource {
 
   @override
   Future<BankListResponse> getBanks() async =>
-      BankListResponse.fromJson(await epaycoHttpRequest.httpGetResponse(
+      BankListResponse.fromJson(await httpAdapter.httpGetResponse(
           uri: 'list-of-banks', headers: EpaycoConstants.headers));
 }
