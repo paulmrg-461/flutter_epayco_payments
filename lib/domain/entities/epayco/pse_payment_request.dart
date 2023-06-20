@@ -1,6 +1,6 @@
 import 'dart:convert';
 
-import 'package:flutter_epayco_payments/domain/entities/entities.dart';
+import 'package:flutter_epayco_payments/domain/entities/user_entity.dart';
 
 String psePaymentRequestToJson(PsePaymentRequest data) =>
     json.encode(data.toJson());

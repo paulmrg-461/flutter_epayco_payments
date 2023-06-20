@@ -3,8 +3,9 @@ import 'dart:async';
 import 'package:flutter_epayco_payments/core/helpers/http_adapter.dart';
 import 'package:flutter_epayco_payments/core/utils/constants/epayco_constants.dart';
 import 'package:flutter_epayco_payments/domain/datasources/epayco/pay_subscription_datasource.dart';
-import 'package:flutter_epayco_payments/domain/entities/entities.dart';
+
 import 'package:flutter_epayco_payments/domain/entities/epayco/pay_subscription_response.dart';
+import 'package:flutter_epayco_payments/domain/entities/epayco/subscription_request.dart';
 
 class PaySubscriptionDatasourceImpl implements PaySubscriptionDatasource {
   final HttpAdapter httpAdapter;

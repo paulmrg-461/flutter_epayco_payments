@@ -1,6 +1,7 @@
 import 'dart:convert';
 
-import 'package:flutter_epayco_payments/domain/entities/entities.dart';
+import 'package:flutter_epayco_payments/domain/entities/epayco/card_request.dart';
+import 'package:flutter_epayco_payments/domain/entities/user_entity.dart';
 
 String subscriptionRequestToJson(SubscriptionRequest data) =>
     jsonEncode(data.toJson());
