@@ -4,7 +4,6 @@ import 'package:flutter_epayco_payments/core/helpers/http_adapter.dart';
 import 'package:flutter_epayco_payments/core/utils/constants/epayco_constants.dart';
 import 'package:flutter_epayco_payments/domain/datasources/epayco/pse_payment_datasource.dart';
 import 'package:flutter_epayco_payments/domain/entities/entities.dart';
-import 'package:flutter_epayco_payments/domain/entities/epayco/pse_payment_response.dart';
 
 class PsePaymentDatasourceImpl implements PsePaymentDatasource {
   final HttpAdapter epaycoHttpRequest =

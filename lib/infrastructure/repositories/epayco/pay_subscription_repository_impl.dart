@@ -1,6 +1,5 @@
 import 'package:flutter_epayco_payments/domain/datasources/epayco/pay_subscription_datasource.dart';
 import 'package:flutter_epayco_payments/domain/entities/entities.dart';
-import 'package:flutter_epayco_payments/domain/entities/epayco/pay_subscription_response.dart';
 import 'package:flutter_epayco_payments/domain/repositories/epayco/pay_subscription_respository.dart';
 
 class PaySubscriptionRepositoryImpl implements PaySubscriptionRepository {
