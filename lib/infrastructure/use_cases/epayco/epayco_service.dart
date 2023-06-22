@@ -10,6 +10,7 @@ import 'package:flutter_epayco_payments/domain/entities/epayco/credit_card_payme
 import 'package:flutter_epayco_payments/domain/entities/epayco/pay_subscription_response.dart';
 import 'package:flutter_epayco_payments/domain/entities/epayco/pse_payment_request.dart';
 import 'package:flutter_epayco_payments/domain/entities/epayco/pse_payment_response.dart';
+import 'package:flutter_epayco_payments/domain/entities/epayco/subscription_request.dart';
 import 'package:flutter_epayco_payments/domain/entities/user_entity.dart';
 import 'package:flutter_epayco_payments/infrastructure/datasources/datasources.dart';
 import 'package:flutter_epayco_payments/infrastructure/repositories/repositories.dart';
@@ -38,7 +39,7 @@ class EpaycoService {
   }
 
   Future<PaySubscriptionResponse> subscribeToPlan(
-          {required subscriptionRequest,
+          {required SubscriptionRequest subscriptionRequest,
           required UserEntity userEntity,
           required String idPlan}) async =>
       await paySubscriptionRepository

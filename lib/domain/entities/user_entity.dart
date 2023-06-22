@@ -6,14 +6,14 @@ UserEntity userEntityFromJson(String str) =>
 String userEntityToJson(UserEntity data) => jsonEncode(data.toJson());
 
 class UserEntity {
+  final String name;
+  final String lastName;
+  final String email;
+  final String phoneNumber;
   final String? uid;
-  final String? name;
-  final String? lastName;
-  final String? email;
   final String? password;
   final String? documentType;
   final String? documentNumber;
-  final String? phoneNumber;
   final String? address;
   final String? companyName;
   final String? organizationUidFk;
@@ -21,14 +21,14 @@ class UserEntity {
   final DateTime? createdAt;
 
   UserEntity({
+    required this.name,
+    required this.lastName,
+    required this.email,
+    required this.phoneNumber,
     this.uid,
-    this.name,
-    this.lastName,
-    this.email,
     this.password,
     this.documentType,
     this.documentNumber,
-    this.phoneNumber,
     this.address,
     this.companyName,
     this.organizationUidFk,
@@ -88,7 +88,6 @@ class UserEntity {
         "name": name,
         "last_name": lastName,
         "email": email,
-        "password": password,
         "document_type": documentType,
         "document_number": documentNumber,
         "phone_number": phoneNumber,
@@ -99,13 +98,13 @@ class UserEntity {
       };
   static Map<String, dynamic> toMap(UserEntity model) => {
         'uid': model.uid ?? '',
-        'name': model.name ?? '',
-        'last_name': model.lastName ?? '',
-        'email': model.email ?? '',
+        'name': model.name,
+        'last_name': model.lastName,
+        'email': model.email,
         'document_type': model.documentType ?? '',
         'document_number': model.documentNumber ?? '',
         'company_name': model.companyName ?? '',
-        'phone_number': model.phoneNumber ?? '',
+        'phone_number': model.phoneNumber,
         'address': model.address ?? '',
         'organization_uid_fk': model.organizationUidFk ?? '',
         'role_id_fk': model.roleIdFk ?? 1,

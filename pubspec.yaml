@@ -1,10 +1,10 @@
 name: flutter_epayco_payments
-description: Flutter ePayco payments with ePayco Python Flask REST API
-version: 0.0.1
+description: Pagos Flutter ePayco, este paquete se integra a la REST API de Flask Python la cual permite realizar pagos con Tarjetas de Crédito, PSE y Efectivo.
+version: 0.0.3
 homepage: https://devpaul.co
 
 environment:
-  sdk: '>=3.1.0-163.1.beta <4.0.0'
+  sdk: '>=2.19.6 <3.10.5'
   flutter: ">=1.17.0"
 
 dependencies:

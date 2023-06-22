@@ -14,17 +14,17 @@ class CreditCardPaymentRequest {
   CreditCardPaymentRequest({
     this.userEntity,
     required this.cardRequest,
-    this.bill,
-    this.description,
-    this.value,
-    this.tax,
-    this.taxBase,
-    this.currency,
-    this.ip,
-    this.urlResponse,
-    this.urlConfirmation,
-    this.methodConfirmation,
-    this.useDefaultCardCustomer,
+    required this.bill,
+    required this.description,
+    required this.value,
+    required this.tax,
+    required this.taxBase,
+    required this.currency,
+    required this.ip,
+    required this.urlResponse,
+    required this.urlConfirmation,
+    required this.methodConfirmation,
+    required this.useDefaultCardCustomer,
   });
 
   final UserEntity? userEntity;

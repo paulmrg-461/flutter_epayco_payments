@@ -8,11 +8,11 @@ String subscriptionRequestToJson(SubscriptionRequest data) =>
 
 class SubscriptionRequest {
   SubscriptionRequest({
-    this.idPlan,
-    this.ip,
-    this.urlConfirmation,
-    this.methodConfirmation,
-    this.userEntity,
+    required this.idPlan,
+    required this.ip,
+    required this.urlConfirmation,
+    required this.methodConfirmation,
+    required this.userEntity,
     required this.cardRequest,
   });
 

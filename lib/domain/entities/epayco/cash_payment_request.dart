@@ -8,17 +8,17 @@ String cashPaymentRequestToJson(CashPaymentRequest data) =>
 class CashPaymentRequest {
   CashPaymentRequest({
     required this.userEntity,
-    this.invoice,
-    this.description,
-    this.value,
-    this.tax,
-    this.taxBase,
-    this.currency,
-    this.ip,
-    this.method,
-    this.urlResponse,
-    this.urlConfirmation,
-    this.methodConfirmation,
+    required this.invoice,
+    required this.description,
+    required this.value,
+    required this.tax,
+    required this.taxBase,
+    required this.currency,
+    required this.ip,
+    required this.method,
+    required this.urlResponse,
+    required this.urlConfirmation,
+    required this.methodConfirmation,
   });
 
   final UserEntity? userEntity;
