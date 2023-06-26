@@ -20,11 +20,11 @@ class CreditCardPaymentRequest {
     required this.tax,
     required this.taxBase,
     required this.currency,
-    required this.ip,
-    required this.urlResponse,
-    required this.urlConfirmation,
-    required this.methodConfirmation,
-    required this.useDefaultCardCustomer,
+    this.ip,
+    this.urlResponse,
+    this.urlConfirmation,
+    this.methodConfirmation,
+    this.useDefaultCardCustomer = true,
   });
 
   final UserEntity? userEntity;

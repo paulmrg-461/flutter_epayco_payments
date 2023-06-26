@@ -9,9 +9,9 @@ String subscriptionRequestToJson(SubscriptionRequest data) =>
 class SubscriptionRequest {
   SubscriptionRequest({
     required this.idPlan,
-    required this.ip,
-    required this.urlConfirmation,
-    required this.methodConfirmation,
+    this.ip,
+    this.urlConfirmation,
+    this.methodConfirmation,
     required this.userEntity,
     required this.cardRequest,
   });

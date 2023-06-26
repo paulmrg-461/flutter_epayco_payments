@@ -38,14 +38,13 @@ class EpaycoService {
         psePaymentDatasource: PsePaymentDatasourceImpl(httpAdapter));
   }
 
-  Future<PaySubscriptionResponse> subscribeToPlan(
-          {required SubscriptionRequest subscriptionRequest,
-          required UserEntity userEntity,
-          required String idPlan}) async =>
+  Future<PaySubscriptionResponse> subscribeToPlan({
+    required SubscriptionRequest subscriptionRequest,
+    required UserEntity userEntity,
+  }) async =>
       await paySubscriptionRepository
           .paySubscription(subscriptionRequest.copyWith(
         userEntity: userEntity,
-        idPlan: idPlan,
         urlConfirmation: '$baseUrl/subscription-status',
         methodConfirmation: EpaycoConstants.methodConfirmation,
       ));

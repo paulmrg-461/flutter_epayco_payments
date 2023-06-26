@@ -11,14 +11,14 @@ class PsePaymentRequest {
     required this.invoice,
     required this.description,
     required this.value,
-    required this.tax,
-    required this.taxBase,
     required this.currency,
-    required this.ip,
     required this.bank,
-    required this.urlResponse,
-    required this.urlConfirmation,
-    required this.methodConfirmation,
+    this.tax = '0',
+    this.taxBase = '0',
+    this.ip,
+    this.urlResponse,
+    this.urlConfirmation,
+    this.methodConfirmation,
   });
 
   final UserEntity? userEntity;

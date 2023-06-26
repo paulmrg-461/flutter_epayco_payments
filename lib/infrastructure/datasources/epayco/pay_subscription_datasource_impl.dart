@@ -14,7 +14,7 @@ class PaySubscriptionDatasourceImpl implements PaySubscriptionDatasource {
   Future<PaySubscriptionResponse> paySubscription(
       SubscriptionRequest subscriptionRequest) async {
     final ipAddressResp = await httpAdapter.httpGetResponse(
-        uri: EpaycoConstants.getIpAddressUrl, headers: EpaycoConstants.headers);
+        uri: EpaycoConstants.getIpAddressUrl, withBaseUrl: false);
 
     final response = await httpAdapter.httpPostResponse(
         uri: 'pay-subscription',

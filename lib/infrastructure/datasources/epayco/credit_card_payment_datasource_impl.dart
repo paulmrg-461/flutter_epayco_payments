@@ -14,7 +14,7 @@ class CreditCardPaymentDatasourceImpl implements CreditCardPaymentDatasource {
   Future<CreditCardPaymentResponse> creditCardPayment(
       CreditCardPaymentRequest creditCardPaymentRequest) async {
     final ipAddressResp = await httpAdapter.httpGetResponse(
-        uri: EpaycoConstants.getIpAddressUrl, headers: EpaycoConstants.headers);
+        uri: EpaycoConstants.getIpAddressUrl, withBaseUrl: false);
 
     final response = await httpAdapter.httpPostResponse(
         uri: 'credit-card-payment',
