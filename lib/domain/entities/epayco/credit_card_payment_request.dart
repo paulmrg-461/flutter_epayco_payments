@@ -8,7 +8,7 @@ import 'package:flutter_epayco_payments/domain/entities/epayco/card_request.dart
 import 'package:flutter_epayco_payments/domain/entities/user_entity.dart';
 
 String creditCardPaymentRequestToJson(CreditCardPaymentRequest data) =>
-    json.encode(data.toJson());
+    jsonEncode(data.toJson());
 
 class CreditCardPaymentRequest {
   CreditCardPaymentRequest({

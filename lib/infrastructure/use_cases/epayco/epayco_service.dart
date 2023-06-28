@@ -52,12 +52,13 @@ class EpaycoService {
   Future<CreditCardPaymentResponse> creditCardPayment(
           {required CreditCardPaymentRequest creditCardPaymentRequest,
           required UserEntity userEntity}) async =>
-      await creditCardPaymentRepository.creditCardPayment(
-          creditCardPaymentRequest.copyWith(
-              userEntity: userEntity,
-              urlResponse: '$baseUrl/',
-              urlConfirmation: '$baseUrl/subscription-status',
-              methodConfirmation: EpaycoConstants.methodConfirmation));
+      await creditCardPaymentRepository
+          .creditCardPayment(creditCardPaymentRequest.copyWith(
+        userEntity: userEntity,
+        urlResponse: '$baseUrl/',
+        urlConfirmation: '$baseUrl/subscription-status',
+        methodConfirmation: EpaycoConstants.methodConfirmation,
+      ));
 
   Future<PsePaymentResponse> psePayment(
           PsePaymentRequest psePaymentRequest) async =>
