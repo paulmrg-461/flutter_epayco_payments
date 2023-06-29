@@ -49,7 +49,7 @@ class SubscriptionRequest {
         "email": userEntity?.email,
         "doc_type": userEntity?.documentType,
         "doc_number": userEntity?.documentNumber,
-        "phone": userEntity?.phoneNumber,
+        "phone": userEntity?.phone,
         "card_number": cardRequest.cardNumber,
         "card_exp_year": cardRequest.cardExpYear,
         "card_exp_month": cardRequest.cardExpMonth,

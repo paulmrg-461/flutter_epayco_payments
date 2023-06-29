@@ -9,7 +9,7 @@ class UserEntity {
   final String name;
   final String lastName;
   final String email;
-  final String phoneNumber;
+  final String phone;
   final String? uid;
   final String? password;
   final String? documentType;
@@ -24,7 +24,7 @@ class UserEntity {
     required this.name,
     required this.lastName,
     required this.email,
-    required this.phoneNumber,
+    required this.phone,
     this.uid,
     this.password,
     this.documentType,
@@ -44,7 +44,7 @@ class UserEntity {
     String? password,
     String? documentType,
     String? documentNumber,
-    String? phoneNumber,
+    String? phone,
     String? address,
     String? companyName,
     String? organizationUidFk,
@@ -59,7 +59,7 @@ class UserEntity {
         password: password ?? this.password,
         documentType: documentType ?? this.documentType,
         documentNumber: documentNumber ?? this.documentNumber,
-        phoneNumber: phoneNumber ?? this.phoneNumber,
+        phone: phone ?? this.phone,
         address: address ?? this.address,
         organizationUidFk: organizationUidFk ?? this.organizationUidFk,
         companyName: companyName ?? this.companyName,
@@ -74,7 +74,7 @@ class UserEntity {
         email: json["email"] ?? '',
         documentType: json["document_type"] ?? '',
         documentNumber: json["document_number"] ?? '',
-        phoneNumber: json["phone_number"] ?? '',
+        phone: json["phone"] ?? '',
         address: json["address"] ?? '',
         organizationUidFk: json["organization_uid_fk"] ?? '',
         companyName: json["company_name"] ?? '',
@@ -90,7 +90,7 @@ class UserEntity {
         "email": email,
         "document_type": documentType,
         "document_number": documentNumber,
-        "phone_number": phoneNumber,
+        "phone": phone,
         "address": address,
         "organization_uid_fk": organizationUidFk,
         "company_name": companyName,
@@ -104,7 +104,7 @@ class UserEntity {
         'document_type': model.documentType ?? '',
         'document_number': model.documentNumber ?? '',
         'company_name': model.companyName ?? '',
-        'phone_number': model.phoneNumber,
+        'phone': model.phone,
         'address': model.address ?? '',
         'organization_uid_fk': model.organizationUidFk ?? '',
         'role_id_fk': model.roleIdFk ?? 1,
