@@ -70,14 +70,12 @@ class EpaycoService {
   Future<BankListResponse> getBanks() async =>
       await psePaymentRepository.getBanks();
 
-  Future<CashPaymentResponse> cashPayment(
-          {required CashPaymentRequest cashPaymentRequest,
-          required UserEntity userEntity}) async =>
+  Future<CashPaymentResponse> cashPayment({
+    required CashPaymentRequest cashPaymentRequest,
+  }) async =>
       await cashPaymentRepository.cashPayment(cashPaymentRequest.copyWith(
-          userEntity: userEntity,
           urlResponse: '$baseUrl/',
-          urlConfirmation: '$baseUrl/subscription-status',
-          methodConfirmation: EpaycoConstants.methodConfirmation));
+          urlConfirmation: '$baseUrl/subscription-status'));
 
   Future<CashMethodsResponse> getCashMethods() async =>
       await cashPaymentRepository.getCashMethods();

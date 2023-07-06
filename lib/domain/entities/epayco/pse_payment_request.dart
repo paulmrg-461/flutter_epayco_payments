@@ -80,6 +80,6 @@ class PsePaymentRequest {
         "email": userEntity?.email,
         "doc_type": userEntity?.documentType,
         "doc_number": userEntity?.documentNumber,
-        "cell_phone": userEntity?.phone,
+        "phone": userEntity?.phone,
       };
 }
