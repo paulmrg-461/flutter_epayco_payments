@@ -16,9 +16,10 @@ Before getting started, make sure you have the following prerequisites:
 
 Follow these steps to set up and run the ePayco Payments REST API with Docker:
 
-1. Open the `.env` file and add the following lines, replacing `YOUR_API_KEY` and `YOUR_PRIVATE_KEY` with your actual ePayco API Key and Private Key:
+1. Open the `.env` file and add the following lines, replacing `YOUR_API_KEY` and `YOUR_PRIVATE_KEY` with your actual ePayco API Key and Private Key.
 
 EPAYCO_API_KEY=YOUR_API_KEY
+
 EPAYCO_PRIVATE_KEY=YOUR_PRIVATE_KEY
 
 2. Save the `.env` file.
@@ -49,11 +50,13 @@ Ensure that your API Key and Private Key in the .env file are correct and proper
 Remember to keep your API Key and Private Key secure and avoid sharing them publicly.
 
 POSTMAN API Documentation
+
 For detailed information on the available endpoints and how to use them, refer to the ePayco Payments REST API Documentation.
 
 <a  href="https://documenter.getpostman.com/view/18896773/2s93shzpLb#intro">https://documenter.getpostman.com/view/18896773/2s93shzpLb#intro</a>
 
 ## _About_
+<a  href="https://github.com/paulmrg-461/flutter_epayco_payments">Flutter ePayco Github Repo</a>
 
 Developed by:
 Paul Realpe

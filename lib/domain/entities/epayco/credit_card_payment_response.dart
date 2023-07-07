@@ -1,12 +1,16 @@
+// To parse this JSON data, do
+//
+//     final creditCardPaymentResponse = creditCardPaymentResponseFromJson(jsonString);
+
 import 'dart:convert';
 
-CreditCardPaymentResponse creditCardPaymentResponseFromJson(String str) =>
-    CreditCardPaymentResponse.fromJson(json.decode(str));
-
-String creditCardPaymentResponseToJson(CreditCardPaymentResponse data) =>
-    json.encode(data.toJson());
-
 class CreditCardPaymentResponse {
+  final Data? data;
+  final String? object;
+  final bool? status;
+  final bool? success;
+  final String? type;
+
   CreditCardPaymentResponse({
     this.data,
     this.object,
@@ -14,12 +18,6 @@ class CreditCardPaymentResponse {
     this.success,
     this.type,
   });
-
-  final Data? data;
-  final String? object;
-  final bool? status;
-  final bool? success;
-  final String? type;
 
   CreditCardPaymentResponse copyWith({
     Data? data,
@@ -35,6 +33,11 @@ class CreditCardPaymentResponse {
         success: success ?? this.success,
         type: type ?? this.type,
       );
+
+  factory CreditCardPaymentResponse.fromRawJson(String str) =>
+      CreditCardPaymentResponse.fromJson(json.decode(str));
+
+  String toRawJson() => json.encode(toJson());
 
   factory CreditCardPaymentResponse.fromJson(Map<String, dynamic> json) =>
       CreditCardPaymentResponse(
@@ -55,6 +58,38 @@ class CreditCardPaymentResponse {
 }
 
 class Data {
+  final String? apellidos;
+  final String? autorizacion;
+  final String? banco;
+  final int? baseiva;
+  final CcNetworkResponse? ccNetworkResponse;
+  final String? ciudad;
+  final String? codError;
+  final int? codRespuesta;
+  final String? countryCard;
+  final String? descripcion;
+  final String? direccion;
+  final String? documento;
+  final String? email;
+  final int? enpruebas;
+  final String? estado;
+  final Extras? extras;
+  final String? factura;
+  final DateTime? fecha;
+  final String? franquicia;
+  final int? ico;
+  final String? indPais;
+  final String? ip;
+  final int? iva;
+  final String? moneda;
+  final String? nombres;
+  final String? recibo;
+  final int? refPayco;
+  final String? respuesta;
+  final String? tipoDoc;
+  final double? valor;
+  final double? valorneto;
+
   Data({
     this.apellidos,
     this.autorizacion,
@@ -89,38 +124,6 @@ class Data {
     this.valorneto,
   });
 
-  final String? apellidos;
-  final String? autorizacion;
-  final String? banco;
-  final int? baseiva;
-  final CcNetworkResponse? ccNetworkResponse;
-  final String? ciudad;
-  final String? codError;
-  final int? codRespuesta;
-  final String? countryCard;
-  final String? descripcion;
-  final String? direccion;
-  final String? documento;
-  final String? email;
-  final int? enpruebas;
-  final String? estado;
-  final Extras? extras;
-  final String? factura;
-  final DateTime? fecha;
-  final String? franquicia;
-  final int? ico;
-  final String? indPais;
-  final String? ip;
-  final int? iva;
-  final String? moneda;
-  final String? nombres;
-  final String? recibo;
-  final int? refPayco;
-  final String? respuesta;
-  final String? tipoDoc;
-  final int? valor;
-  final int? valorneto;
-
   Data copyWith({
     String? apellidos,
     String? autorizacion,
@@ -151,8 +154,8 @@ class Data {
     int? refPayco,
     String? respuesta,
     String? tipoDoc,
-    int? valor,
-    int? valorneto,
+    double? valor,
+    double? valorneto,
   }) =>
       Data(
         apellidos: apellidos ?? this.apellidos,
@@ -188,6 +191,10 @@ class Data {
         valorneto: valorneto ?? this.valorneto,
       );
 
+  factory Data.fromRawJson(String str) => Data.fromJson(json.decode(str));
+
+  String toRawJson() => json.encode(toJson());
+
   factory Data.fromJson(Map<String, dynamic> json) => Data(
         apellidos: json["apellidos"],
         autorizacion: json["autorizacion"],
@@ -220,8 +227,8 @@ class Data {
         refPayco: json["ref_payco"],
         respuesta: json["respuesta"],
         tipoDoc: json["tipo_doc"],
-        valor: json["valor"],
-        valorneto: json["valorneto"],
+        valor: json["valor"]?.toDouble(),
+        valorneto: json["valorneto"]?.toDouble(),
       );
 
   Map<String, dynamic> toJson() => {
@@ -260,13 +267,13 @@ class Data {
 }
 
 class CcNetworkResponse {
+  final String? code;
+  final String? message;
+
   CcNetworkResponse({
     this.code,
     this.message,
   });
-
-  final String? code;
-  final String? message;
 
   CcNetworkResponse copyWith({
     String? code,
@@ -276,6 +283,11 @@ class CcNetworkResponse {
         code: code ?? this.code,
         message: message ?? this.message,
       );
+
+  factory CcNetworkResponse.fromRawJson(String str) =>
+      CcNetworkResponse.fromJson(json.decode(str));
+
+  String toRawJson() => json.encode(toJson());
 
   factory CcNetworkResponse.fromJson(Map<String, dynamic> json) =>
       CcNetworkResponse(
@@ -290,6 +302,17 @@ class CcNetworkResponse {
 }
 
 class Extras {
+  final String? extra1;
+  final String? extra10;
+  final String? extra2;
+  final String? extra3;
+  final String? extra4;
+  final String? extra5;
+  final String? extra6;
+  final String? extra7;
+  final String? extra8;
+  final String? extra9;
+
   Extras({
     this.extra1,
     this.extra10,
@@ -302,17 +325,6 @@ class Extras {
     this.extra8,
     this.extra9,
   });
-
-  final String? extra1;
-  final String? extra10;
-  final String? extra2;
-  final String? extra3;
-  final String? extra4;
-  final String? extra5;
-  final String? extra6;
-  final String? extra7;
-  final String? extra8;
-  final String? extra9;
 
   Extras copyWith({
     String? extra1,
@@ -338,6 +350,10 @@ class Extras {
         extra8: extra8 ?? this.extra8,
         extra9: extra9 ?? this.extra9,
       );
+
+  factory Extras.fromRawJson(String str) => Extras.fromJson(json.decode(str));
+
+  String toRawJson() => json.encode(toJson());
 
   factory Extras.fromJson(Map<String, dynamic> json) => Extras(
         extra1: json["extra1"],
